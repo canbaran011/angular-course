@@ -1,14 +1,16 @@
 <div class="course-card">
 
     <div class="course-title">
-        {{ course.description }}
+        {{ cardIndex +"-"+ course.description }}
     </div>
     <img width="300" alt="Angular Logo"
-         [src]="course.iconUrl">
+        *ngIf="course.iconUrl && isImageVisible()"
+
+        [src]="course.iconUrl">
 
     <div class="course-description">
         {{ course.longDescription }}
     </div>
-    <button >View Course</button>
+    <button (click)="onCourseViewed()">View Course</button>
 
 </div>

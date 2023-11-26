@@ -43,7 +43,7 @@ course-card.is-first {
 }
 
 course-card.is-last {
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid rgb(255, 23, 23);
   padding-top: 20px;
 }
 
