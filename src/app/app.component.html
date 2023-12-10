@@ -1,36 +1,46 @@
 <div class="top-menu">
+  <img
+    class="logo"
+    src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
+  />
+</div>
+<!-- <h1 style="text-align: center ;"> {{ rxjsCourse.description }} </h1> -->
+<!-- (click)="onCardClicked()" -->
 
-  <img class="logo"
-       src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
+<!-- 
+<div class="footer" >
+    <footer-card 
+    [some]="footerText"
+    (footerEmitter)="onFooterSelected($event)"
+    >
+    </footer-card>
+</div> -->
+<!-- <button (click)="onCoursesEdited()" >Edit Courses</button> -->
+<div class="courses" *ngIf="courses[0] as course">
+
+  <!-- <course-card #cardRef1
+    (courseEmitter)="onCourseSelected($event)"
+    [course]="courses[0]"
+  ></course-card>
+
+  <course-card #cardRef2
+  (courseEmitter)="onCourseSelected($event)"
+  [course]="courses[1]"
+></course-card> -->
+
+  <course-card
+    (courseSelected)="onCourseSelected($event)"
+    [course]="course" 
+  >
+  <course-image [src]="course.iconUrl"></course-image>
+
+  <div class="course-description">
+    {{ course?.longDescription }}
+  </div>
+  <!-- <div>
+    edit desc = <textarea name="tcourse" id="" cols="30" rows="10"></textarea>
+  </div> -->
+</course-card>
+ 
 
 </div>
-
-<div>
-
-  <div class="demo">
-
-
-      <button (click)="onEditCourse()" i18n>Edit Course</button>
-
-  </div>
-
-  <div class="courses">
-
-    <course-card *ngFor="let course of  courses  "
-                 (courseChanged)="save($event)"
-                 type="beginner"
-                 [course]="course">
-
-      <course-image [src]="course.iconUrl"></course-image>
-
-    </course-card>
-
-
-  </div>
-
-
-</div>
-
-
-
-

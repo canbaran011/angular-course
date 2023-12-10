@@ -19,3 +19,4 @@ bootstrapApplication(AppComponent, {
   ],
 })
   .catch(err => console.log(err));
+//deneme
