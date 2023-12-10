@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ContentChild, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Course } from '../model/course';
+import { CourseImageComponent } from '../course-image/course-image.component';
 
 @Component({
   selector: 'course-card',
@@ -17,8 +18,18 @@ export class CourseCardComponent {
   @Input()
   cardIndex: number;
 
-  @Output()
+  @Output('courseSelected')
   courseEmitter = new EventEmitter<Course>();
+
+  // @ContentChild('courseImage') //using with ngcontent 
+  // image;
+
+  @ContentChild(CourseImageComponent, { read: ElementRef})
+  image;
+
+  ngAfterViewInit() {
+    console.log("image", this.image);
+  }
   
   onCourseViewed() {
     console.log("clicked");

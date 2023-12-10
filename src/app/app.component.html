@@ -28,26 +28,18 @@
   [course]="courses[1]"
 ></course-card> -->
 
-  <course-card 
-    
-    (courseEmitter)="onCourseSelected($event)"
+  <course-card
+    (courseSelected)="onCourseSelected($event)"
     [course]="course" 
   >
-  <div class="course-image">
-    <img #courseImage
-      width="300"
-      alt="Angular Logo" 
-      [src]="course.iconUrl"
-    />
-    <p>total lessons = 5</p>
-  </div>
+  <course-image [src]="course.iconUrl"></course-image>
+
   <div class="course-description">
     {{ course?.longDescription }}
   </div>
-  <div>
-
+  <!-- <div>
     edit desc = <textarea name="tcourse" id="" cols="30" rows="10"></textarea>
-  </div>
+  </div> -->
 </course-card>
  
 
