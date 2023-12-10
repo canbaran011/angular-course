@@ -3,19 +3,11 @@
   <div class="course-title" [ngStyle]="cardStyles()">
     {{( cardIndex || "") + "-" + course?.description }}
   </div>
-  <img #courseImage
-    width="300"
-    alt="Angular Logo"
-    *ngIf="isImageVisible(); else noimage"
-    [src]="course.iconUrl"
-  />
 
-  <ng-template #noimage>
-    <p>Image has corrupted.</p>
-  </ng-template>
+  <ng-content select=".course-image"></ng-content>
+  <ng-content select=".course-description"></ng-content>
 
-  <div class="course-description">
-    {{ course?.longDescription }}
-  </div>
+  <ng-content></ng-content>
+
   <button (click)="onCourseViewed()">View Course</button>
 </div>

@@ -15,8 +15,8 @@
     >
     </footer-card>
 </div> -->
-<button (click)="onCoursesEdited()" >Edit Courses</button>
-<div class="courses" #container>
+<!-- <button (click)="onCoursesEdited()" >Edit Courses</button> -->
+<div class="courses" *ngIf="courses[0] as course">
 
   <!-- <course-card #cardRef1
     (courseEmitter)="onCourseSelected($event)"
@@ -28,11 +28,27 @@
   [course]="courses[1]"
 ></course-card> -->
 
-  <course-card *ngFor="let course of courses; index as i"
+  <course-card 
+    
     (courseEmitter)="onCourseSelected($event)"
-    [course]="course"
-    [cardIndex]="i + 1"
-  ></course-card>
+    [course]="course" 
+  >
+  <div class="course-image">
+    <img #courseImage
+      width="300"
+      alt="Angular Logo" 
+      [src]="course.iconUrl"
+    />
+    <p>total lessons = 5</p>
+  </div>
+  <div class="course-description">
+    {{ course?.longDescription }}
+  </div>
+  <div>
+
+    edit desc = <textarea name="tcourse" id="" cols="30" rows="10"></textarea>
+  </div>
+</course-card>
  
 
 </div>
