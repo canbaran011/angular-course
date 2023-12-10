@@ -31,15 +31,12 @@
   <p class="warn"> {{ courseName }} has no image yet !</p>
   <img src="../../assets/empty-image.png" alt="blankImage">
 </ng-template>
-
-  <ng-container 
-  *ngTemplateOutlet="blankImage context: {description: course.description}">
-
-  </ng-container>
+ 
 
   <course-card
     (courseSelected)="onCourseSelected($event)"
     [course]="course" 
+    [noImageTpl]="blankImage"
   >
   <course-image [src]="course.iconUrl"></course-image>
 
