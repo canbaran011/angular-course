@@ -12,6 +12,8 @@ export class AppComponent {
 
   courses = COURSES;
 
+  footerText: string = "FOOTER TEXT";
+
   @ViewChild(CourseCardComponent)
   card: CourseCardComponent;
 
@@ -27,5 +29,8 @@ export class AppComponent {
   onCourseSelected(course: Course) {
     console.log("On Course Selected !", course);
     
+  }
+  onFooterSelected(some: any) {
+    console.log(some)
   }
 }
