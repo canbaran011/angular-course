@@ -27,6 +27,15 @@
   (courseEmitter)="onCourseSelected($event)"
   [course]="courses[1]"
 ></course-card> -->
+<ng-template #blankImage let-courseName="description" >
+  <p class="warn"> {{ courseName }} has no image yet !</p>
+  <img src="../../assets/empty-image.png" alt="blankImage">
+</ng-template>
+
+  <ng-container 
+  *ngTemplateOutlet="blankImage context: {description: course.description}">
+
+  </ng-container>
 
   <course-card
     (courseSelected)="onCourseSelected($event)"
